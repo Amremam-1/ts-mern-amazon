@@ -18,6 +18,9 @@ class APIClient<T> {
   get = () => {
     return axiosInstance.get<T>(this.endpoint).then((res) => res.data)
   }
+  getAll = () => {
+    return axiosInstance.get<T>(this.endpoint).then((res) => res.data)
+  }
 }
 
 export default APIClient
