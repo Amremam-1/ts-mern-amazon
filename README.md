@@ -23,6 +23,11 @@
    4. add helmet for settting page title
 7. Add Page Routing
    1. npm install react-router-dom
-   2. create router for home page 
+   2. create router for home page
    3. create router for product page
    4. add helmet for settting page title
+8. Fetch Products From Backend
+   1. npm install axios
+   2. set axios base url
+   3. use effect hook
+   4. use reducer hook

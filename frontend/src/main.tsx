@@ -2,6 +2,7 @@ import React from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
 import ReactDOM from "react-dom/client"
 import App from "./App.tsx"
+import { HelmetProvider } from "react-helmet-async"
 import "./index.css"
 import {
   Route,
@@ -28,6 +29,8 @@ const router = createBrowserRouter(
 )
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
   </React.StrictMode>
 )
