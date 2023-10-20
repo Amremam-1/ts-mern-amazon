@@ -14,6 +14,8 @@ import HomePage from "./pages/HomePage.tsx"
 import ProductPage from "./pages/ProductPage.tsx"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react"
+import theme from "./theme.ts"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,11 +32,14 @@ const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-        <ReactQueryDevtools />
-      </QueryClientProvider>
-    </HelmetProvider>
+    <ChakraProvider theme={theme}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+          <ReactQueryDevtools />
+        </QueryClientProvider>
+      </HelmetProvider>
+    </ChakraProvider>
   </React.StrictMode>
 )

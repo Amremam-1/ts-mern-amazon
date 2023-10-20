@@ -1,19 +1,20 @@
 import { Container, Nav, Navbar } from "react-bootstrap"
 import { Outlet } from "react-router-dom"
-
+import ColorModeSwitch from "./components/ColorModeSwitch"
 function App() {
   return (
     <div className="d-flex flex-column vh-100">
       <header>
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar variant="dark" bg="dark" expand="lg">
           <Container>
             <Navbar.Brand>Amazona</Navbar.Brand>
           </Container>
-          <Nav>
-            <a href="#cart" className="nav-link">
+          <Nav className="d-flex align-items-center">
+            <ColorModeSwitch />
+            <a href="/cart" className="nav-link">
               Cart
             </a>
-            <a href="#signin" className="nav-link">
+            <a href="/signin" className="nav-link">
               Sign In
             </a>
           </Nav>
