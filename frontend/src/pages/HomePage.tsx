@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async"
 import useProduct from "../hooks/UseProduct"
 
 export default function HomePage() {
-  const { data: products, isLoading, error } = useProduct()
+  const { data: product, isLoading, error } = useProduct()
   return isLoading ? (
     <LoadingBox />
   ) : error ? (
@@ -18,7 +18,7 @@ export default function HomePage() {
       <Helmet>
         <title>Amazon</title>
       </Helmet>
-      {products!.map((product) => (
+      {product!.map((product) => (
         <Col key={product.slug} sm={6} md={4} lg={3}>
           <ProductItem product={product} />
         </Col>
