@@ -30,7 +30,7 @@ export default function ProductPage() {
 
   const navigate = useNavigate()
   const addToCartHandler = () => {
-    const existItem = cart.cartItems.find((x) => x._id === product!._id)
+    const existItem = cart.cartItems.find((x) => x.slug === product!.slug)
     const quantity = existItem ? existItem.quantity + 1 : 1
 
     if (product!.countInStock < quantity) {

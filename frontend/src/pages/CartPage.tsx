@@ -53,7 +53,7 @@ const CartPage = () => {
           ) : (
             <ListGroup>
               {cartItems.map((item: CartItem) => (
-                <ListGroup.Item key={item._id}>
+                <ListGroup.Item key={item.slug}>
                   <Row className="align-items-center">
                     <Col md={4}>
                       <img

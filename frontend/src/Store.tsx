@@ -38,17 +38,18 @@ type Action =
 
 function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
-    case "SWITCH_MODE":
+    case "SWITCH_MODE": {
       return { ...state, mode: state.mode === "dark" ? "light" : "dark" }
+    }
 
     case "CART_ADD_ITEM": {
       const newItem = action.payload
       const existItem = state.cart.cartItems.find(
-        (item: CartItem) => newItem._id === item._id
+        (item: CartItem) => newItem.slug === item.slug
       )
       const cartItems = existItem
         ? state.cart.cartItems.map((item: CartItem) =>
-            item._id === existItem._id ? newItem : item
+            item.slug === existItem.slug ? newItem : item
           )
         : [...state.cart.cartItems, newItem]
       localStorage.setItem("cartItems", JSON.stringify(cartItems))
@@ -57,7 +58,7 @@ function reducer(state: AppState, action: Action): AppState {
 
     case "CART_REMOVE_ITEM": {
       const cartItems = state.cart.cartItems.filter(
-        (item: CartItem) => item._id !== action.payload._id
+        (item: CartItem) => item.slug !== action.payload.slug
       )
       localStorage.setItem("cartItems", JSON.stringify(cartItems))
       return { ...state, cart: { ...state.cart, cartItems } }
