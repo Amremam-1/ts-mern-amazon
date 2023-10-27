@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async"
 import useProductPage from "../hooks/UseProductPage"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import LoadingBox from "../components/LoadingBox"
 import MessageBox from "../components/MessageBox"
 import { convertProductToCartItem, getError } from "../utils"
@@ -28,6 +28,7 @@ export default function ProductPage() {
   const { state, dispatch } = useContext(Store)
   const { cart } = state
 
+  const navigate = useNavigate()
   const addToCartHandler = () => {
     const existItem = cart.cartItems.find((x) => x._id === product!._id)
     const quantity = existItem ? existItem.quantity + 1 : 1
@@ -41,6 +42,7 @@ export default function ProductPage() {
       type: "CART_ADD_ITEM",
       payload: { ...convertProductToCartItem(product!), quantity },
     })
+    navigate("/cart")
   }
   return isLoading ? (
     <LoadingBox />
