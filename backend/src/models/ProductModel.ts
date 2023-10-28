@@ -1,6 +1,6 @@
-import { modelOptions, prop, getModelForClass } from "@typegoose/typegoose"
+import { ModelOptions, prop, getModelForClass } from "@typegoose/typegoose"
 
-@modelOptions({ schemaOptions: { timestamps: true } })
+@ModelOptions({ schemaOptions: { timestamps: true } })
 export class Product {
   public _id?: string
 
@@ -13,28 +13,26 @@ export class Product {
   @prop({ required: true })
   public image!: string
 
-  @prop()
-  public images!: string[]
   @prop({ required: true })
   public brand!: string
+
   @prop({ required: true })
   public category!: string
+
   @prop({ required: true })
   public description!: string
 
   @prop({ required: true, default: 0 })
   public price!: number
+
   @prop({ required: true, default: 0 })
   public countInStock!: number
+
   @prop({ required: true, default: 0 })
   public rating!: number
+
   @prop({ required: true, default: 0 })
   public numReviews!: number
-
-  @prop({ required: true, default: false })
-  public isFeatured!: boolean
-  @prop()
-  public banner?: string
 }
 
 export const ProductModel = getModelForClass(Product)

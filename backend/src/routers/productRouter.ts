@@ -12,6 +12,7 @@ productRouter.get(
     res.json(products)
   })
 )
+
 // /api/slug/tshirt
 productRouter.get(
   "/slug/:slug",
