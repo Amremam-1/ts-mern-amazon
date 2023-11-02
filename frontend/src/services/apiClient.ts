@@ -21,6 +21,12 @@ class APIClient<T> {
   getAll = () => {
     return axiosInstance.get<T>(this.endpoint).then((res) => res.data)
   }
+
+  post = (email: string, password: string) => {
+    axiosInstance
+      .post<T>(this.endpoint, { email, password })
+      .then((res) => res.data)
+  }
 }
 
 export default APIClient

@@ -1,5 +1,5 @@
 import { ApiError } from "./types/ApiError"
-import { CartItem } from "./types/cart"
+import { CartItem } from "./types/Cart"
 import { Product } from "./types/product"
 
 export const getError = (error: ApiError) => {
@@ -10,7 +10,6 @@ export const getError = (error: ApiError) => {
 
 export const convertProductToCartItem = (product: Product): CartItem => {
   const cartItem: CartItem = {
-    _id: product._id,
     name: product.name,
     slug: product.slug,
     image: product.image,
