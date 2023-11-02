@@ -23,7 +23,7 @@ class APIClient<T> {
   }
 
   post = (email: string, password: string) => {
-    axiosInstance
+    return axiosInstance
       .post<T>(this.endpoint, { email, password })
       .then((res) => res.data)
   }

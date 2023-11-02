@@ -11,10 +11,7 @@ const useSignIn = () => {
     }: {
       email: string
       password: string
-    }) => {
-      const response = await apiClient.post(email, password)
-      return response
-    },
+    }) => await apiClient.post(email, password),
   })
 }
 

@@ -5,7 +5,7 @@ import { UserInfo } from "./types/UserInfo"
 type AppState = {
   mode: string
   cart: Cart
-  userInfo: UserInfo
+  userInfo?: UserInfo
 }
 
 const initialState: AppState = {
@@ -42,6 +42,7 @@ type Action =
   | { type: "CART_ADD_ITEM"; payload: CartItem }
   | { type: "CART_REMOVE_ITEM"; payload: CartItem }
   | { type: "USER_SINGIN"; payload: UserInfo }
+  | { type: "USER_SINGOUT" }
 
 function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
@@ -74,6 +75,30 @@ function reducer(state: AppState, action: Action): AppState {
     case "USER_SINGIN": {
       return { ...state, userInfo: action.payload }
     }
+
+    case "USER_SINGOUT":
+      return {
+        mode:
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme : dark)").matches
+            ? "dark"
+            : "light",
+        cart: {
+          cartItems: [],
+          paymentMethod: "PayPal",
+          shippingAddress: {
+            fullName: "",
+            address: "",
+            postalCode: "",
+            city: "",
+            country: "",
+          },
+          itemsPrice: 0,
+          shippingPrice: 0,
+          taxPrice: 0,
+          totalPrice: 0,
+        },
+      }
     default:
       return state
   }

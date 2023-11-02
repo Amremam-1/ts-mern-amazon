@@ -24,7 +24,7 @@ export const SignInPage = () => {
 
   const { mutateAsync: signin, isLoading } = useSignIn()
 
-  const submitHandler = async (e: React.SyntheticEvent) => { 
+  const submitHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault()
     try {
       const data = await signin({
