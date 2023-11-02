@@ -22,9 +22,9 @@ class APIClient<T> {
     return axiosInstance.get<T>(this.endpoint).then((res) => res.data)
   }
 
-  post = (email: string, password: string) => {
+  post = (email: string, password: string, name?: string) => {
     return axiosInstance
-      .post<T>(this.endpoint, { email, password })
+      .post<T>(this.endpoint, { email, password, name })
       .then((res) => res.data)
   }
 }

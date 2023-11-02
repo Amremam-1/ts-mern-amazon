@@ -21,6 +21,7 @@ function App() {
 
   useEffect(() => {
     document.body.setAttribute("data-bs-theme", mode)
+    localStorage.setItem("mode", mode)
   }, [mode])
 
   const switchModeHandler = () => {

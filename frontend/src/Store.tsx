@@ -9,8 +9,8 @@ type AppState = {
 }
 
 const initialState: AppState = {
-  userInfo: localStorage.getItem("useInfo")
-    ? JSON.parse(localStorage.getItem("useInfo")!)
+  userInfo: localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo")!)
     : null,
 
   mode: localStorage.getItem("mode")

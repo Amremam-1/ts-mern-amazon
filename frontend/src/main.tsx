@@ -17,14 +17,16 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { StoreProvider } from "./Store.tsx"
 import CartPage from "./pages/CartPage.tsx"
 import { SignInPage } from "./pages/SignInPage.tsx"
+import SignUpPage from "./pages/SignUpPage.tsx"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} element={<HomePage />} />
-      <Route path="/product/:slug" element={<ProductPage />} />
-      <Route path="/cart" element={<CartPage />} />
-      <Route path="/signin" element={<SignInPage />} />
+      <Route path="product/:slug" element={<ProductPage />} />
+      <Route path="cart" element={<CartPage />} />
+      <Route path="signin" element={<SignInPage />} />
+      <Route path="signup" element={<SignUpPage />} />
     </Route>
   )
 )
