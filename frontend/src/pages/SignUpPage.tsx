@@ -46,7 +46,6 @@ const SignUpPage = () => {
       dispatch({ type: "USER_SINGIN", payload: data })
       localStorage.setItem("userInfo", JSON.stringify(data))
       navigate(redirect)
-      console.log(data)
     } catch (err) {
       toast.error(getError(err as ApiError))
     }
