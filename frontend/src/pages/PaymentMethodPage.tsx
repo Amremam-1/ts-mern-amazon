@@ -53,10 +53,21 @@ const PaymentMethodPage = () => {
           <div className="mb-3">
             <Form.Check
               type="radio"
-              id="Stripe"
-              label="Stripe"
-              value="Stripe"
-              checked={paymentMethodName === "Stripe"}
+              id="Fawry"
+              label="Fawry"
+              value="Fawry"
+              checked={paymentMethodName === "Fawry"}
+              onChange={(e) => setPaymentMethodName(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <Form.Check
+              type="radio"
+              id="Meeza"
+              label="Meeza"
+              value="Meeza"
+              checked={paymentMethodName === "Meeza"}
               onChange={(e) => setPaymentMethodName(e.target.value)}
             />
           </div>
