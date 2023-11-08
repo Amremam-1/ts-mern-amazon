@@ -5,7 +5,7 @@ import LoadingBox from "../components/LoadingBox"
 import MessageBox from "../components/MessageBox"
 import ProductItem from "../components/ProductItem"
 import { Helmet } from "react-helmet-async"
-import useProduct from "../hooks/UseProduct"
+import useProduct from "../hooks/useProduct"
 
 export default function HomePage() {
   const { data: product, isLoading, error } = useProduct()

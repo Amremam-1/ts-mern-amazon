@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { Store } from "../Store"
-import UseSignUp from "../hooks/UseSignUp"
+import useSignUp from "../hooks/UseSignUp"
 import { toast } from "react-toastify"
 import { getError } from "../utils"
 import { ApiError } from "../types/ApiError"
@@ -29,7 +29,7 @@ const SignUpPage = () => {
     }
   }, [navigate, redirect, userInfo])
 
-  const { mutateAsync: signup, isLoading } = UseSignUp()
+  const { mutateAsync: signup, isLoading } = useSignUp()
 
   const submitHandler = async (e: React.SyntheticEvent) => {
     e.preventDefault()

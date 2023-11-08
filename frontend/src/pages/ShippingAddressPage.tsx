@@ -42,7 +42,7 @@ const ShippingAddressPage = () => {
       "shippingAddress",
       JSON.stringify({ fullName, address, city, postalCode, country })
     )
-    navigate("/payment")
+    navigate("/paymentMethod")
   }
   return (
     <div>

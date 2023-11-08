@@ -44,10 +44,12 @@ type Action =
   | { type: "USER_SINGIN"; payload: UserInfo }
   | { type: "USER_SINGOUT" }
   | { type: "SAVE_SHIPPING_ADDRESS"; payload: ShippingAddress }
+  | { type: "SAVE_PAYMENT_METHOD"; payload: string }
 
 function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
     case "SWITCH_MODE": {
+      localStorage.setItem("mode", state.mode === "dark" ? "light" : "dark")
       return { ...state, mode: state.mode === "dark" ? "light" : "dark" }
     }
 
@@ -106,6 +108,15 @@ function reducer(state: AppState, action: Action): AppState {
         cart: {
           ...state.cart,
           shippingAddress: action.payload,
+        },
+      }
+    }
+    case "SAVE_PAYMENT_METHOD": {
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          paymentMethod: action.payload,
         },
       }
     }
