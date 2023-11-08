@@ -115,15 +115,18 @@ const CartPage = () => {
                   </h3>
                 </ListGroup.Item>
 
-                <ListGroup.Item className="d-grid">
-                  <Button
-                    type="button"
-                    variant="primary"
-                    onClick={checkoutHandler}
-                    disabled={cartItems?.length === 0}
-                  >
-                    Proceed to Checkout
-                  </Button>
+                <ListGroup.Item>
+                  <Link to="/shipping">
+                    <Button
+                      type="button"
+                      variant="primary"
+                      onClick={checkoutHandler}
+                      className="full-width-button"
+                      disabled={cartItems?.length === 0}
+                    >
+                      Proceed to Checkout
+                    </Button>
+                  </Link>
                 </ListGroup.Item>
               </ListGroup>
             </CardBody>

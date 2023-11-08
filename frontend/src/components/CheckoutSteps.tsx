@@ -9,7 +9,7 @@ interface props {
 
 const CheckoutSteps = ({ step1, step2, step3, step4 }: props) => {
   return (
-    <Row className="checkout-steps">
+    <Row className="checkout-steps mb-5">
       <Col className={step1 ? "active" : ""}>Sign-In</Col>
       <Col className={step2 ? "active" : ""}>Shipping</Col>
       <Col className={step3 ? "active" : ""}>Payment</Col>

@@ -30,11 +30,14 @@ userRouter.post(
 userRouter.post(
   "/signup",
   asyncHandler(async (req: Request, res: Response) => {
+  
     const user = await UserModel.create({
       name: req.body.name,
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password),
     } as User)
+
+    console.log(user, req.body)
     res.json({
       _id: user._id,
       name: user.name,

@@ -13,7 +13,7 @@ const UseSignUp = () => {
       name: string
       email: string
       password: string
-    }) => await apiClient.post(email, name, password),
+    }) => await apiClient.post(email, password, name),
   })
 }
 
