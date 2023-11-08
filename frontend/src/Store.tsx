@@ -41,6 +41,7 @@ type Action =
   | { type: "SWITCH_MODE" }
   | { type: "CART_ADD_ITEM"; payload: CartItem }
   | { type: "CART_REMOVE_ITEM"; payload: CartItem }
+  | { type: "CART_CLEAR" }
   | { type: "USER_SINGIN"; payload: UserInfo }
   | { type: "USER_SINGOUT" }
   | { type: "SAVE_SHIPPING_ADDRESS"; payload: ShippingAddress }
@@ -73,6 +74,10 @@ function reducer(state: AppState, action: Action): AppState {
       )
       localStorage.setItem("cartItems", JSON.stringify(cartItems))
       return { ...state, cart: { ...state.cart, cartItems } }
+    }
+
+    case "CART_CLEAR": {
+      return { ...state, cart: { ...state.cart, cartItems: [] } }
     }
 
     case "USER_SINGIN": {
