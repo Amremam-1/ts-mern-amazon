@@ -21,7 +21,7 @@ import SignUpPage from "./pages/SignUpPage.tsx"
 import ShippingAddressPage from "./pages/ShippingAddressPage.tsx"
 import PaymentMethodPage from "./pages/PaymentMethodPage.tsx"
 import ProtectedRoute from "./components/ProtectedRoute.tsx"
-import PlaceOrderPage from "./pages/placeOrderPage.tsx"
+import PlaceOrderPage from "./pages/PlaceOrderPage.tsx"
 
 const router = createBrowserRouter(
   createRoutesFromElements(

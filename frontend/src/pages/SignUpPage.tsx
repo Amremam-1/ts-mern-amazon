@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { Store } from "../Store"
-import useSignUp from "../hooks/UseSignUp"
+import useSignUp from "../hooks/useSignUp"
 import { toast } from "react-toastify"
 import { getError } from "../utils"
 import { ApiError } from "../types/ApiError"
