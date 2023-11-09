@@ -18,10 +18,8 @@ import {
 import LoadingBox from "../components/LoadingBox"
 
 const PlaceOrderPage = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const navigate = useNavigate()
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { state, dispatch } = useContext(Store)
   const { cart } = state
 
@@ -32,7 +30,6 @@ const PlaceOrderPage = () => {
   cart.taxPrice = round2(0.15 * cart.itemsPrice)
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { mutateAsync: createOrder, isLoading } = useOrderPlace()
 
   const placeOrderHandler = async () => {
@@ -55,7 +52,6 @@ const PlaceOrderPage = () => {
     }
   }
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     if (!cart.paymentMethod) {
       navigate("/payment")
