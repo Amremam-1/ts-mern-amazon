@@ -2,6 +2,7 @@ import cors from "cors"
 import dotenv from "dotenv"
 import express from "express"
 import mongoose from "mongoose"
+
 import { orderRouter } from "./routers/orderRouter"
 import { productRouter } from "./routers/productRouter"
 import { seedRouter } from "./routers/seedRouter"
@@ -17,8 +18,8 @@ mongoose
   .then(() => {
     console.log("connected to mongodb")
   })
-  .catch(() => {
-    console.log("error mongodb")
+  .catch((err) => {
+    console.log(err)
   })
 
 const app = express()

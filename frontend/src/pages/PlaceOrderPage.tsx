@@ -56,7 +56,7 @@ const PlaceOrderPage = () => {
     if (!cart.paymentMethod) {
       navigate("/payment")
     }
-  }, [navigate, cart])
+  }, [cart, navigate])
   return (
     <div>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
@@ -122,54 +122,56 @@ const PlaceOrderPage = () => {
           </Card>
         </Col>
         <Col md={4}>
-          <Card.Body>
-            <Card.Title>Order Summary</Card.Title>
+          <Card>
+            <Card.Body>
+              <Card.Title>Order Summary</Card.Title>
 
-            <ListGroup>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Items</Col>
-                  <Col>${cart.itemsPrice.toFixed(2)}</Col>
-                </Row>
-              </ListGroup.Item>
+              <ListGroup>
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Items</Col>
+                    <Col>${cart.itemsPrice.toFixed(2)}</Col>
+                  </Row>
+                </ListGroup.Item>
 
-              <ListGroupItem>
-                <Row>
-                  <Col>Shipping</Col>
-                  <Col>${cart.shippingPrice.toFixed(2)}</Col>
-                </Row>
-              </ListGroupItem>
+                <ListGroupItem>
+                  <Row>
+                    <Col>Shipping</Col>
+                    <Col>${cart.shippingPrice.toFixed(2)}</Col>
+                  </Row>
+                </ListGroupItem>
 
-              <ListGroup.Item>
-                <Row>
-                  <Col>Tax</Col>
-                  <Col>${cart.taxPrice.toFixed(2)}</Col>
-                </Row>
-              </ListGroup.Item>
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Tax</Col>
+                    <Col>${cart.taxPrice.toFixed(2)}</Col>
+                  </Row>
+                </ListGroup.Item>
 
-              <ListGroupItem>
-                <Row>
-                  <Col>Order Total</Col>
-                  <Col>
-                    <strong>${cart.totalPrice.toFixed(2)}</strong>
-                  </Col>
-                </Row>
-              </ListGroupItem>
+                <ListGroupItem>
+                  <Row>
+                    <Col>Order Total</Col>
+                    <Col>
+                      <strong>${cart.totalPrice.toFixed(2)}</strong>
+                    </Col>
+                  </Row>
+                </ListGroupItem>
 
-              <ListGroup.Item>
-                <div className="d-grid">
-                  <Button
-                    type="button"
-                    onClick={placeOrderHandler}
-                    disabled={cart.cartItems.length === 0 || isLoading}
-                  >
-                    Place Order
-                  </Button>
-                  {isLoading && <LoadingBox></LoadingBox>}
-                </div>
-              </ListGroup.Item>
-            </ListGroup>
-          </Card.Body>
+                <ListGroup.Item>
+                  <div className="d-grid">
+                    <Button
+                      type="button"
+                      onClick={placeOrderHandler}
+                      disabled={cart.cartItems.length === 0 || isLoading}
+                    >
+                      Place Order
+                    </Button>
+                    {isLoading && <LoadingBox></LoadingBox>}
+                  </div>
+                </ListGroup.Item>
+              </ListGroup>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     </div>
